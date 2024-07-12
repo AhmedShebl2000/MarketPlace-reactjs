@@ -1,4 +1,6 @@
-import { IFormInput, IProduct } from "../interfaces";
+import { ICategories, IFormInput, IProduct } from "../interfaces";
+import { v4 as uuidv4 } from 'uuid';
+
 
 export const productList: IProduct[] = [
   {
@@ -88,4 +90,45 @@ export const FormInputsList: IFormInput[] = [
     label: "product price",
     type: "text",
   },
+
+]
+
+export const ColorsList: string[] = [
+  "#F0F8FF",
+  "#FAEBD7",
+  "#000000",
+  "#0000FF",
+  "#DC143C",
+  "#B8860B",
+  "#8B008B",
+  "#E9967A",
+  "#2F4F4F",
+  "#808080",
+  "#7CFC00",
+  "#FF00FF"
+]
+
+export const categories: ICategories[] = [
+  {
+    id: uuidv4(),
+    name: "Nike",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlAHSjq7Gk3-FboSL_OMkC42bdCkxD12e4mw&s"
+  },
+  
+  {
+    id: uuidv4(),
+    name: "Adidas",
+    imageURL: "https://cdn.britannica.com/94/193794-050-0FB7060D/Adidas-logo.jpg"
+  },
+  {
+    id: uuidv4(),
+    name: "Polo",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWi07fwIePWx5nlZAoviMHA0FBdxUixhwzCw&s"
+  },
+  {
+    id: uuidv4(),
+    name: "Timberland",
+    imageURL: "https://i.pinimg.com/736x/9b/5d/f4/9b5df4328849de6c220d2d2d8feff838.jpg"
+  },
+
 ]

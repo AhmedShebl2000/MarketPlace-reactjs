@@ -1,9 +1,10 @@
-export const productValidation = (product: { title: string; description: string; imageURL: string; price: string }) => {
-  const errors: { title: string; description: string; imageURL: string; price: string} = {
+export const productValidation = (product: { title: string; description: string; imageURL: string; price: string; colors?: string[] }) => {
+  const errors: { title: string; description: string; imageURL: string; price: string; colors: string;} = {
     title: "",
     description: "",
     imageURL: "",
     price: "",
+    colors: "",
   }
 
   if (product.title.trim() === "" || product.title.length < 10 || product.title.length >80) {
@@ -14,15 +15,21 @@ export const productValidation = (product: { title: string; description: string;
     errors.description = "Product title must be between 10 and 900 characters!";
   }
 
-  const urlPattern = /^(https?:\/\/)?([a-zA-Z0-9_\-]+\.?)+\/?[a-zA-Z0-9_\-#?=&\/]+$/;
-  if (product.imageURL.trim() === "" || !urlPattern.test(product.imageURL)) {
-    errors.imageURL = "Product image URL must be a valid URL!";
-  }
+  // const urlPattern = /^(https?:\/\/)?([a-zA-Z0-9_\-]+\.?)+\/?[a-zA-Z0-9_\-#?=&\/]+$/;
+  // if (product.imageURL.trim() === "" || !urlPattern.test(product.imageURL)) {
+  //   errors.imageURL = "Product image URL must be a valid URL!";
+  // }
 
   if (product.price.trim() === "" || isNaN(Number(product.price))) {
     errors.price = "Product price must be a valid price!";
   }
 
+  if(product.colors) {
+  if(product.colors.length === 0) {
+    errors.colors = "You need to choose at least one color!";
+  }
+}
+  
 
   return errors;
 }
